@@ -81,15 +81,15 @@ function App() {
           ))
         ) : (
           <>
-            <BotIcon />
-            <h2 className="text-white text-3xl">
+            <BotIcon className="h-48 md:h-64 lg:h-72" />
+            <h2 className="text-white text-center text-lg p-2 lg:text-3xl md:text-2xl">
               Ask Your Medical queries to the bot
             </h2>
           </>
         )}
       </div>
 
-      <div className="flex justify-center w-screen p-4 fixed bottom-4 bg-[#343541]">
+      <div className="flex px-4 my-4 justify-center w-screen justify-items-center fixed bottom-4 left-[50%] translate-x-[-50%] bg-[#343541]">
         <form action={getResponse}>
           <div className="flex flex-row items-center h-[7vh] border-2 border-[#43434e] rounded-xl">
             <input
