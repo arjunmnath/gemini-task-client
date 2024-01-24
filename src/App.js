@@ -89,13 +89,12 @@ function App() {
         )}
       </div>
 
-      <div className="flex px-4 my-4 justify-center w-screen justify-items-center fixed bottom-4 left-[50%] translate-x-[-50%] bg-[#343541]">
+      <div className="flex px-4 my-4 justify-center w-screen justify-items-center fixed bottom-1 md:bottom-2 lg:bottom-4 left-[50%] translate-x-[-50%] bg-[#343541]">
         <form action={getResponse}>
           <div className="flex flex-row items-center h-[7vh] border-2 border-[#43434e] rounded-xl">
             <input
               className="clear p-4 w-[80vw] h-16  placeholder-gray-400 text-white focus:outline-none border-none bg-inherit"
               type="text"
-              name="somewothing"
               value={prompt}
               placeholder="say something to the bot...
             "
@@ -105,7 +104,7 @@ function App() {
               autoComplete="off"
             />
             <button
-              className="bg-none h-[80%] rounded-xl p-2 bg-green-300"
+              className="bg-none h-[80%] rounded-xl p-2 m-2 bg-green-300"
               type="submit"
               value="submit"
               onClick={(e) => {
