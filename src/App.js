@@ -1,23 +1,72 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
 
 function App() {
+  const [prompt, setPrompt] = useState("");
+  const getResponse = async () => {
+    console.log("sending request");
+    const res = await fetch(
+      `https://gemini-task-backend.vercel.app/?prompt=${encodeURI(prompt)}`,
+      {
+        method: "GET",
+        headers: {
+          "access-control-allow-origin": "*",
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      },
+    );
+    const data = await res.json();
+    console.log(data);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="w-screen h-screen bg-[#343541] flex items-end p-6">
+      <div>
+        <form action={getResponse}>
+          <input
+            className="clear  w-[80vw] h-16 rounded-xl border-2 placeholder-white text-white border-[#43434e] bg-inherit"
+            type="text"
+            name="somewothing"
+            value={prompt}
+            placeholder="say something to the bot...
+            "
+            onChange={(e) => {
+              console.log(e.target.value);
+              setPrompt(e.target.value);
+            }}
+          />
+          <button
+            className="bg-none h-16 m-2 rounded-xl"
+            type="submit"
+            value="submit"
+            onClick={(e) => {
+              e.preventDefault();
+              getResponse();
+            }}
+          >
+            <svg
+              className="h-14"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlnsXlink="http://www.w3.org/1999/xlink"
+              fill="#43434e"
+              version="1.1"
+              id="Capa_1"
+              viewBox="0 0 495.003 495.003"
+              xmlSpace="preserve"
+            >
+              <g id="XMLID_51_">
+                <path
+                  id="XMLID_53_"
+                  d="M164.711,456.687c0,2.966,1.647,5.686,4.266,7.072c2.617,1.385,5.799,1.207,8.245-0.468l55.09-37.616   l-67.6-32.22V456.687z"
+                />
+                <path
+                  id="XMLID_52_"
+                  d="M492.431,32.443c-1.513-1.395-3.466-2.125-5.44-2.125c-1.19,0-2.377,0.264-3.5,0.816L7.905,264.422   c-4.861,2.389-7.937,7.353-7.904,12.783c0.033,5.423,3.161,10.353,8.057,12.689l125.342,59.724l250.62-205.99L164.455,364.414   l156.145,74.4c1.918,0.919,4.012,1.376,6.084,1.376c1.768,0,3.519-0.322,5.186-0.977c3.637-1.438,6.527-4.318,7.97-7.956   L494.436,41.257C495.66,38.188,494.862,34.679,492.431,32.443z"
+                />
+              </g>
+            </svg>{" "}
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
