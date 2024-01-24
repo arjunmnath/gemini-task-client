@@ -59,7 +59,7 @@ function App() {
   const chattingStyle =
     "h-[87vh] p-4 w-full flex flex-col-reverse justify-items-start overflow-y-scroll";
   const initalStyle =
-    "h-[87vh] w-full p-4 flex flex-col justify-center items-center";
+    "h-[87vh] w-full mb-4 md:lg:mb-0 p-4 flex flex-col justify-center items-center";
   return (
     <div className="w-screen flex flex-col items-end my-4 px-4">
       <div
@@ -96,8 +96,7 @@ function App() {
               className="clear p-4 w-[80vw] h-16  placeholder-gray-400 text-white focus:outline-none border-none bg-inherit"
               type="text"
               value={prompt}
-              placeholder="say something to the bot...
-            "
+              placeholder="say something to the bot..."
               onChange={(e) => {
                 setPrompt(e.target.value);
               }}
