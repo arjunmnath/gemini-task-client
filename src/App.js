@@ -5,20 +5,23 @@ import BotIcon from "./boticon";
 import SendIcon from "./sendicon";
 import Lottie from "lottie-react";
 import FetchingAnimation from "./fetching.json";
+
 const MsgBubble = (props) => {
   let bg = props.belongsTo === "user" ? "bg-sky-500" : "bg-green-400";
   let float = props.belongsTo === "user" ? "justify-end" : "justify-start";
   const customRenderers = {
-    list: ({ ordered, children }) => {
-      console.log(ordered, children);
-      return <ol className="list-disc">{children}</ol>;
+    ol: (props) => {
+      return <ol className="list-number ml-6">{props.children}</ol>;
+    },
+    ul: (props) => {
+      return <ul className="list-disc ml-6">{props.children}</ul>;
     },
   };
   return (
     <>
       <div className={`${float} flex w-full`}>
         <div
-          className={`${bg} m-2 p-2 text-sm md:text-md lg:text-lg rounded-lg w-fit max-w-[45vw] h-fit text-white`}
+          className={`${bg} m-2 py-2 px-4 text-sm md:text-md lg:text-lg rounded-lg w-fit max-w-[45vw] h-fit text-white`}
         >
           <Markdown components={customRenderers}>{props.msg}</Markdown>
         </div>
