@@ -57,9 +57,9 @@ function App() {
     setIsFetching(false);
   };
   const chattingStyle =
-    "h-[80vh] md:lg:h-[87-vh] p-4 w-full self-start flex flex-col-reverse justify-items-start overflow-y-scroll";
+    "h-[83vh] md:lg:h-[87-vh] p-4 w-full self-start flex flex-col-reverse justify-items-start overflow-y-scroll";
   const initalStyle =
-    "h-[80vh] md:lg:h-[87-vh] w-full p-4 flex self-start flex-col justify-center items-center";
+    "h-[83vh] md:lg:h-[87-vh] w-full p-4 flex self-start flex-col justify-center items-center";
   return (
     <div className="w-screen flex flex-col items-end my-4 px-4">
       <div
