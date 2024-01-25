@@ -18,7 +18,7 @@ const MsgBubble = (props) => {
     <>
       <div className={`${float} flex w-full`}>
         <div
-          className={`${bg} m-2 p-2 rounded-lg w-fit max-w-[45vw] h-fit text-white`}
+          className={`${bg} m-2 p-2 text-sm md:text-md lg:text-lg rounded-lg w-fit max-w-[45vw] h-fit text-white`}
         >
           <Markdown components={customRenderers}>{props.msg}</Markdown>
         </div>
@@ -57,9 +57,9 @@ function App() {
     setIsFetching(false);
   };
   const chattingStyle =
-    "h-[87vh] p-4 w-full flex flex-col-reverse justify-items-start overflow-y-scroll";
+    "h-[80vh] md:lg:h-[87-vh] p-4 w-full self-start flex flex-col-reverse justify-items-start overflow-y-scroll";
   const initalStyle =
-    "h-[87vh] w-full mb-4 md:lg:mb-0 p-4 flex flex-col justify-center items-center";
+    "h-[80vh] md:lg:h-[87-vh] w-full p-4 flex self-start flex-col justify-center items-center";
   return (
     <div className="w-screen flex flex-col items-end my-4 px-4">
       <div
